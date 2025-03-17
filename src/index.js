@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+root.render( // 루트에 렌더링 하는거임. 가상 돔을 루트 엘리먼트와 연결? 함
   <React.StrictMode>
     <App />
   </React.StrictMode>

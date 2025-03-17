@@ -1,0 +1,22 @@
+[
+    {
+        "title" : "HTML",
+        "imgUrl" : "./img/html.png",
+        "content" : "HTML(HyperText Markup Language)"
+    },
+    {
+        "title" : "CSS",
+        "imgUrl" : "./img/css.png",
+        "content" : "CSS(Cascading Style Sheets)"
+    },
+    {
+        "title" : "Javascript",
+        "imgUrl" : "./img/js.png",
+        "content" : "Javascript"
+    },
+    {
+        "title" : "React",
+        "imgUrl" : "./img/react.png",
+        "content" : "React"
+    }
+]
