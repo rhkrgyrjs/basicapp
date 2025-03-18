@@ -1,9 +1,15 @@
+import { useState } from 'react';
+
 export default function MyListItem({title, imgUrl, content}) 
 {
-    let cnt = 0;
+    // let cnt = 0;
+    const [cnt, setCnt] = useState(0);
     const handleClick = () =>
     {
-        cnt = cnt + 1;
+        //cnt = cnt + 1;
+        // setter는 비동기방식.
+        // 콘솔이 먼저 찍히게 됨(갱신전값 출력됨)
+        setCnt(cnt + 1);
         console.log(cnt);
     }
 
@@ -20,7 +26,7 @@ export default function MyListItem({title, imgUrl, content})
                 <h1 className="text-xl font-bold">{title}</h1>
                 <p>{content}</p>
             </div>
-            <div className="flex justify-end items-center" onClick={handleClick}>
+            <div className="cursor-pointer flex justify-end items-center" onClick={handleClick}>
                 {/* 좋아요 */}
                 <span>❤️</span>
                 <span className="inline-flex mx-2 font-bold">좋아요</span>

@@ -8,7 +8,7 @@ export default function MyList()
     );
 
     return (
-        <div className="w-full grid grid-cols-2 grid-rows-2 gap-4">
+        <div className="w-10/12 grid grid-cols-2 grid-rows-2 gap-4">
            {tags}
         </div>
     );
