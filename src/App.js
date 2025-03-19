@@ -1,13 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
 
-//import Hello from './01/Hello';
 import { RiHomeHeartFill } from 'react-icons/ri';
+//import Hello from './01/Hello';
 //import MyClock from './02/MyClock';
 //import MyDiv1 from './03/MyDiv1';
 //import MyList from './04/MyList';
 //import Lotto from './05/Lotto';
-import Traffic from './06/Traffic';
+//import Traffic from './06/Traffic';
+//import MyRef from './07/MyRef'
+//import MyRefAdd from './07/MyRefAdd'
+import Gallery from './08/Gallery';
 
 function App() {
   return (
@@ -21,7 +24,9 @@ function App() {
         {/* <MyList /> */}
         {/* <Lotto /> */}
         {/* <MyClock /> */}
-        <Traffic />
+        {/* <Traffic /> */}
+        {/* <MyRefAdd /> */}
+        <Gallery />
       </main>
       <footer className="flex justify-center items-center h-20 bg-black text-slate-100">
         Copyright : Hyogun Gwak
