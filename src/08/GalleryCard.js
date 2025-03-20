@@ -1,18 +1,5 @@
-export default function GalleryCard() 
+export default function GalleryCard({item}) 
 {
-    const item = {
-        "galContentId" : "2586952",
-        "galContentTypeId" : "17",
-        "galTitle" : "서울빛초롱축제",
-        "galWebImageUrl" : "http://tong.visitkorea.or.kr/cms2/website/52/2586952.jpg",
-        "galCreatedtime" : "20190109152342",
-        "galModifiedtime" : "20190109152354",
-        "galPhotographyMonth" : "201811",
-        "galPhotographyLocation" : "서울특별시 종로구",
-        "galPhotographer" : "라이브스튜디오",
-        "galSearchKeyword" : "서울빛초롱축제, 서울특별시 종로구, 2018 하반기 기획사진, 청계천"
-    };
-
     let sptags = item.galSearchKeyword.includes(',') ? item.galSearchKeyword.split(',') : [item.galSearchKeyword];
     sptags = sptags.map(kw => 
     <span key={kw} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">

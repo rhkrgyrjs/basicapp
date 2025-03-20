@@ -1,10 +1,62 @@
 import GalleryCard from "./GalleryCard";
-
+import TailButton from "../UI/TailButton";
+import { useState, useEffect, useRef } from 'react';
 export default function Gallery() 
 {
+    const [tdata, setTdata] = useState([]);
+    const [cards, setCards] = useState([]);
+    const inRef =  useRef();
+
+    const getFetchData = () => {
+        const url = `https://apis.data.go.kr/B551011/PhotoGalleryService1/gallerySearchList1?serviceKey=${process.env.REACT_APP_API_KEY}&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&arrange=A&keyword=${encodeURI(inRef.current.value)}&_type=json`;
+
+        fetch(url)
+            .then(resp => resp.json())
+            .then(data => setTdata(data.response.body.items.item))
+            .catch(err => console.log(err));
+
+    };
+
+    const handleOk = (e) => {
+        e.preventDefault();
+        if (inRef.current.value == '')
+        {
+            alert('키워드를 입력하세요');
+            inRef.current.focus();
+            return;
+        }
+
+        getFetchData();
+
+    };
+
+    const handleClear = () => {
+
+    };
+
+    useEffect(() => {
+        inRef.current.focus();
+    }, []);
+
+    useEffect(() => {
+        let tm = tdata.map(item => <GalleryCard key={item.galContentId} item={item} />);
+        setCards(tm);
+    }, [tdata]);
+
     return (
-        <div>
-            <GalleryCard />
+        <div className="w-full h-full flex flex-col justify-center items-center">
+            <form className="w-10/12 h-24 flex justify-center items-center">
+                <div>
+                    <input type="text" ref={inRef} id="txt1" className="form-input rounded w-full" />
+                </div>
+                <div>
+                    <TailButton caption={'확인'} bcolor={'blue'} handleClick={handleOk} />
+                    <TailButton caption={'취소'} bcolor={'blue'} handleClick={handleClear} />
+                </div>
+            </form>
+            <div className="w-10/12 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-2">
+                {cards}
+            </div>
         </div>
     );
 }
